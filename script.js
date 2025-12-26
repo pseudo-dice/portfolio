@@ -2,24 +2,24 @@
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
+const updateThemeIcon = (theme) => {
+    themeToggle.innerHTML = theme === 'light'
+        ? '<i class="fas fa-moon"></i>'
+        : '<i class="fas fa-sun"></i>';
+};
+
 themeToggle.addEventListener('click', () => {
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
+
     body.setAttribute('data-theme', newTheme);
-    themeToggle.innerHTML = newTheme === 'light' 
-        ? '<i class="fas fa-moon"></i>' 
-        : '<i class="fas fa-sun"></i>';
-    
+    updateThemeIcon(newTheme);
     localStorage.setItem('theme', newTheme);
 });
 
-// Load saved theme
 const savedTheme = localStorage.getItem('theme') || 'dark';
 body.setAttribute('data-theme', savedTheme);
-if (savedTheme === 'light') {
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-}
+updateThemeIcon(savedTheme);
 
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
@@ -28,6 +28,8 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', (!expanded).toString());
 });
 
 // Close menu when clicking on a link
@@ -35,6 +37,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
     });
 });
 

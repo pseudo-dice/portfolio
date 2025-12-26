@@ -9,7 +9,6 @@
     <script src="script.js?v=3" defer></script>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">AN</a>
@@ -21,29 +20,273 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-moon"></i>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+                <i class="fas fa-moon" aria-hidden="true"></i>
             </button>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="particles" id="particles"></div>
-        <div class="hero-content">
-            <h1 class="glitch" data-text="ABHAYA NEUPANE">ABHAYA NEUPANE</h1>
-            <div class="typing-container">
-                <span class="typed-text"></span>
-                <span class="cursor">&nbsp;</span>
+    <main>
+        <section id="home" class="hero">
+            <div class="particles" id="particles" aria-hidden="true"></div>
+            <div class="hero-content">
+                <p class="hero-eyebrow">Computer Engineering Student</p>
+                <h1 class="glitch" data-text="ABHAYA NEUPANE">ABHAYA NEUPANE</h1>
+                <div class="typing-container" aria-live="polite">
+                    <span class="typed-text"></span>
+                    <span class="cursor">&nbsp;</span>
+                </div>
+                <p class="hero-subtitle">Turning ideas into resilient hardware-software systems that scale.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <ul class="hero-social" aria-label="Social links">
+                    <li><a href="https://www.linkedin.com/in/abhaya-neupane" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="mailto:abhaya@example.com">Email</a></li>
+                    <li><a href="https://github.com/abhaya" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
             </div>
-            <p class="hero-subtitle">Computer Engineering Student @ Iowa State University</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow">About</p>
+                    <h2 class="section-title">Solving complex problems with thoughtful engineering.</h2>
+                    <p class="section-subtitle">I’m a Computer Engineering student at Iowa State University focused on embedded systems, resilient hardware, and full-stack experiences that delight users.</p>
+                </div>
+                <div class="about-grid">
+                    <article class="about-card">
+                        <h3>Mission</h3>
+                        <p>I bring ideas to life by bridging firmware, hardware, and modern web technologies. My goal is to craft reliable systems that feel effortless.</p>
+                    </article>
+                    <article class="about-card">
+                        <h3>Focus Areas</h3>
+                        <ul>
+                            <li>Embedded microcontroller design</li>
+                            <li>IoT hardware prototyping</li>
+                            <li>Full-stack web development</li>
+                            <li>Human-centered interfaces</li>
+                        </ul>
+                    </article>
+                    <article class="about-card">
+                        <h3>Highlights</h3>
+                        <p>From leading robotics teams to shipping production-grade dashboards, I thrive where rapid iteration meets rigorous engineering.</p>
+                    </article>
+                </div>
             </div>
-      
+        </section>
+
+        <section id="experience" class="section experience">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow">Experience</p>
+                    <h2 class="section-title">Delivering real-world impact through engineering internships and research roles.</h2>
+                </div>
+                <div class="experience-timeline">
+                    <article class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Embedded Systems Intern</h3>
+                            <p class="experience-company">Innovate Hardware Labs</p>
+                            <p class="experience-duration">Summer 2025</p>
+                        </div>
+                        <p>Designed low-power firmware for an ARM-based wearable platform, reducing energy consumption by 28% through custom sleep-state orchestration.</p>
+                    </article>
+                    <article class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Full Stack Developer</h3>
+                            <p class="experience-company">Cyclone Tech Collective</p>
+                            <p class="experience-duration">2024 – Present</p>
+                        </div>
+                        <p>Built a serverless analytics dashboard used by 8+ campus organizations to visualize sensor data in real time with automated anomaly alerts.</p>
+                    </article>
+                    <article class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Research Assistant</h3>
+                            <p class="experience-company">Iowa State Embedded Vision Lab</p>
+                            <p class="experience-duration">2023 – 2024</p>
+                        </div>
+                        <p>Implemented FPGA-based acceleration for object detection workloads, achieving a 3.2× throughput improvement over the CPU baseline.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow">Projects</p>
+                    <h2 class="section-title">Selected work across hardware, embedded systems, and the web.</h2>
+                </div>
+                <div class="filter-group" role="group" aria-label="Project filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="embedded">Embedded</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="hardware">Hardware</button>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card" data-category="embedded">
+                        <p class="project-eyebrow">Embedded</p>
+                        <h3>Smart Greenhouse Controller</h3>
+                        <p>Custom STM32 firmware managing climate control loops, LoRa telemetry, and a React dashboard for remote monitoring.</p>
+                        <ul class="project-tags">
+                            <li>STM32</li>
+                            <li>LoRaWAN</li>
+                            <li>React</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" aria-label="View greenhouse case study">Case Study</a>
+                            <a href="#" aria-label="View greenhouse source code">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="project-card" data-category="hardware">
+                        <p class="project-eyebrow">Hardware</p>
+                        <h3>FPGA Vision Pipeline</h3>
+                        <p>Built a Verilog image processing pipeline with on-device CNN inference, integrating OpenCV calibration tooling.</p>
+                        <ul class="project-tags">
+                            <li>FPGA</li>
+                            <li>Verilog</li>
+                            <li>OpenCV</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" aria-label="View FPGA case study">Case Study</a>
+                            <a href="#" aria-label="View FPGA source code">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="project-card" data-category="web">
+                        <p class="project-eyebrow">Web</p>
+                        <h3>Real-Time Robotics Dashboard</h3>
+                        <p>Next.js dashboard streaming telemetry from autonomous rovers with WebRTC video and predictive maintenance insights.</p>
+                        <ul class="project-tags">
+                            <li>Next.js</li>
+                            <li>WebRTC</li>
+                            <li>Azure</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" aria-label="View robotics case study">Case Study</a>
+                            <a href="#" aria-label="View robotics source code">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow">Skills</p>
+                    <h2 class="section-title">Stacking firmware, hardware, and product thinking.</h2>
+                    <p class="section-subtitle">Skill levels are approximate and reflect ongoing learning.</p>
+                </div>
+                <div class="skill-grid">
+                    <article class="skill-card">
+                        <div class="skill-header">
+                            <h3>Embedded C / C++</h3>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:90%"></div>
+                        </div>
+                    </article>
+                    <article class="skill-card">
+                        <div class="skill-header">
+                            <h3>PCB Design</h3>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:75%"></div>
+                        </div>
+                    </article>
+                    <article class="skill-card">
+                        <div class="skill-header">
+                            <h3>Python & Data</h3>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:80%"></div>
+                        </div>
+                    </article>
+                    <article class="skill-card">
+                        <div class="skill-header">
+                            <h3>Full Stack</h3>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:85%"></div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <h3>12</h3>
+                        <p>Integrated hardware prototypes</p>
+                    </article>
+                    <article class="stat-card">
+                        <h3>8</h3>
+                        <p>Hackathons and competitions</p>
+                    </article>
+                    <article class="stat-card">
+                        <h3>15</h3>
+                        <p>Projects shipped end-to-end</p>
+                    </article>
+                    <article class="stat-card">
+                        <h3>5</h3>
+                        <p>Leadership roles across teams</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow">Contact</p>
+                    <h2 class="section-title">Let’s collaborate on the next big idea.</h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Reach Out</h3>
+                        <p>I’m always excited to chat about embedded systems, full-stack projects, and opportunities that push the boundaries of what’s possible.</p>
+                        <ul class="contact-list">
+                            <li><i class="fas fa-envelope"></i> abhaya@example.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Ames, Iowa</li>
+                            <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        </ul>
+                    </div>
+                    <form id="contact-form" class="contact-form">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project" required></textarea>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© <span id="footer-year"></span> Abhaya Neupane. Crafted with care in Iowa.</p>
+            <a href="#home" class="back-to-top">Back to top</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
