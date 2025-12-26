@@ -184,11 +184,15 @@ window.addEventListener('scroll', () => {
 // Contact Form Handling
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-    contactForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message! I will get back to you soon.');
+        contactForm.reset();
+    });
+} else {
+    console.warn('Contact form element not found; submit handler not attached.');
+}
 
 // Skill Bar Animation on Scroll
 const skillBars = document.querySelectorAll('.skill-progress');
