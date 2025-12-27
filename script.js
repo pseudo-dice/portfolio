@@ -253,7 +253,8 @@ window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const parallax = document.querySelector('.hero-content');
     if (parallax) {
-        parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+        const offset = Math.min(scrolled * 0.2, 60);
+        parallax.style.transform = `translateY(${offset}px)`;
     }
 });
 
