@@ -25,29 +25,21 @@ updateThemeIcon(savedTheme);
 const navMenu = document.querySelector('.nav-menu');
 const logoLink = document.querySelector('.logo');
 const mobileBreakpoint = window.matchMedia('(max-width: 980px)');
-const hamburger = document.querySelector('.hamburger');
 
 const setMenuState = (open) => {
+    if (!navMenu) return;
     navMenu.classList.toggle('active', open);
-    if (hamburger) {
-        hamburger.classList.toggle('active', open);
-        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
 };
 
 const toggleMenu = () => {
+    if (!navMenu) return;
     const isOpen = navMenu.classList.contains('active');
     setMenuState(!isOpen);
 };
 
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        toggleMenu();
-    });
-}
-
 if (logoLink) {
     logoLink.addEventListener('click', (event) => {
+        if (!navMenu) return;
         if (mobileBreakpoint.matches) {
             event.preventDefault();
             toggleMenu();
@@ -56,11 +48,13 @@ if (logoLink) {
 }
 
 // Close menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        setMenuState(false);
+if (navMenu) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            setMenuState(false);
+        });
     });
-});
+}
 
 // Typing Animation
 const typedTextSpan = document.querySelector('.typed-text');
