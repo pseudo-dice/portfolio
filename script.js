@@ -47,10 +47,10 @@ const cursorSpan = document.querySelector('.cursor');
 
 const textArray = [
     'Embedded Systems Engineer',
-    'Full Stack Developer',
-    'Hardware Designer',
-    'Problem Solver',
-    'Team Leader'
+    'Digital Logic Designer',
+    'FastAPI + Spring Builder',
+    'RISC-V Pipeline Architect',
+    'Community Tech Leader'
 ];
 
 const typingDelay = 100;
