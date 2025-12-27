@@ -24,20 +24,37 @@ updateThemeIcon(savedTheme);
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+const logoLink = document.querySelector('.logo');
+const mobileBreakpoint = window.matchMedia('(max-width: 980px)');
+
+const setMenuState = (open) => {
+    navMenu.classList.toggle('active', open);
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+};
+
+const toggleMenu = () => {
+    const isOpen = navMenu.classList.contains('active');
+    setMenuState(!isOpen);
+};
 
 hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', (!expanded).toString());
+    toggleMenu();
 });
+
+if (logoLink) {
+    logoLink.addEventListener('click', (event) => {
+        if (mobileBreakpoint.matches) {
+            event.preventDefault();
+            toggleMenu();
+        }
+    });
+}
 
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
+        setMenuState(false);
     });
 });
 
