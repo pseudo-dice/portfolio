@@ -22,15 +22,17 @@ body.setAttribute('data-theme', savedTheme);
 updateThemeIcon(savedTheme);
 
 // Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const logoLink = document.querySelector('.logo');
 const mobileBreakpoint = window.matchMedia('(max-width: 980px)');
+const hamburger = document.querySelector('.hamburger');
 
 const setMenuState = (open) => {
     navMenu.classList.toggle('active', open);
-    hamburger.classList.toggle('active', open);
-    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (hamburger) {
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
 };
 
 const toggleMenu = () => {
@@ -38,9 +40,11 @@ const toggleMenu = () => {
     setMenuState(!isOpen);
 };
 
-hamburger.addEventListener('click', () => {
-    toggleMenu();
-});
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        toggleMenu();
+    });
+}
 
 if (logoLink) {
     logoLink.addEventListener('click', (event) => {
